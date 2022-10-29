@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>Mostrar cursos</h1>
-      </div>
+        <h1>Personas</h1>
+      </div> 
       <div class="progress" *ngIf="cargar">
         <div
           class="progress-bar progress-bar-striped progress-bar-animated"
@@ -11,6 +11,18 @@
           style="width: 100%"
         ></div>
       </div>
+      <div class="content">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+          <div class="container-fluid">
+            <ul class="navbar-nav">
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link active" [routerLink]="['/home']">Inicio</a>
+              </li>
+              
+            </ul>
+          </div>
+        </nav>
+       </div>
       <div class="row">
         <div class="col-md-12">
           <hr />
@@ -19,34 +31,27 @@
               <tr>
                 <th>Id de la persona</th>
                 <th>Nombre</th>
-                <th>Fecha de usuario</th>
-                <th>Fecha de finalización</th>
-                <th>Dia</th>
-                <th>Hora de inicio</th>
-                <th>Hora de fin</th>
-                <th>Profesor</th>
-                <th>Id del profesor</th>
+                <th>Fecha de nacimiento</th>
+                <th>Usuario</th>
+                <th>Contrasena</th>
+
                 <th scope="col">Elliminar y Actualizar</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let curso of personas">
-                <th scope="row">{{ curso.idcurso }}</th>
-                <th scope="row">{{ curso.nombre }}</th>
+              <tr *ngFor="let persona of personas">
+                <th scope="row">{{ persona.idpersona }}</th>
+                <th scope="row">{{ persona.nombre }}</th>
                 <th scope="row">
-                  {{ curso.fechaDeInicio | date: "dd/MM/yyyy" }}
+                  {{ persona.fechanacimiento | date: "dd/MM/yyyy" }}
                 </th>
-                <th scope="row">{{ curso.fechaFin | date: "dd/MM/yyyy" }}</th>
-                <th scope="row">{{ curso.dia }}</th>
-                <th scope="row">{{ curso.horaInicio }}</th>
-                <th scope="row">{{ curso.horaFin }}</th>
-                <th scope="row">{{ curso.profesor }}</th>
-                <th scope="row">{{ curso.profesorIdprofesor }}</th>
+                <th scope="row">{{ persona.usuario }}</th>
+                <th scope="row">{{ persona.contrasena}}</th>
                 <th scope="row">
                   <button
                     type="button"
                     class="btn btn-danger"
-                    (click)="eliminar(curso)"
+                    (click)="eliminar(persona)"
                   >
                     Eliminar
                   </button>

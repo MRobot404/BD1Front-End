@@ -32,6 +32,7 @@ import { TenantsListComponent } from './components/tenants-list/tenants-list.com
 import { AddTenantComponent } from './components/add-tenant/add-tenant.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { MostarpersonasComponent } from './mostarpersonas/mostarpersonas.component';
+import { ActualizarpersonasComponent } from './actualizarpersonas/actualizarpersonas.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { MostarpersonasComponent } from './mostarpersonas/mostarpersonas.compone
     AddTenantComponent,
     AdminComponent,
     MostarpersonasComponent,
+    ActualizarpersonasComponent,
 
  
   ],

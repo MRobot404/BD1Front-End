@@ -11,7 +11,8 @@ import{NewUserComponent} from './components/new-user/new-user.component'
 import { PropertyContactRequestsComponent } from './components/property-contact-requests/property-contact-requests.component';
 import { PropertyDetailsComponent } from './components/property-details/property-details.component';
 import { TenantsListComponent } from './components/tenants-list/tenants-list.component';
-import {MostarpersonasComponent} from './mostarpersonas/mostarpersonas.component'
+import {MostarpersonasComponent} from './mostarpersonas/mostarpersonas.component';
+import {ActualizarpersonasComponent} from './actualizarpersonas/actualizarpersonas.component';
 
 const routes: Routes = [
   {
@@ -65,6 +66,10 @@ const routes: Routes = [
   {
     path:'mostrarpersonas',
     component:MostarpersonasComponent
+  },
+  {
+    path:'actualizarpersonas',
+    component:ActualizarpersonasComponent
   },
 
   { 
