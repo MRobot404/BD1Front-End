@@ -9,10 +9,10 @@
       <mat-spinner color="primary" [diameter]="70" class="mx-auto"></mat-spinner>
   </div>
   <div *ngIf = "error" class="text-center text-info text-primary mt-4">
-    Error while Fetching Properties
+    Error al obtener propiedades
   </div>
 <div *ngIf="filteredEmpty" class="text-center text-info">
-  No search results
+  Sin resultados de búsqueda
 </div>
 <div [hidden] ="!propertiesSelected || filteredEmpty" class="matpage ">
   <mat-paginator [pageSizeOptions]="[6]" showFirstLastButtons></mat-paginator>

@@ -31,6 +31,7 @@ import { PropertyContactRequestsComponent } from './components/property-contact-
 import { TenantsListComponent } from './components/tenants-list/tenants-list.component';
 import { AddTenantComponent } from './components/add-tenant/add-tenant.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { MostarpersonasComponent } from './mostarpersonas/mostarpersonas.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { AdminComponent } from './components/admin/admin.component';
     TenantsListComponent,
     AddTenantComponent,
     AdminComponent,
+    MostarpersonasComponent,
 
  
   ],

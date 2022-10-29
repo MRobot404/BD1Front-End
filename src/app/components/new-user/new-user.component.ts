@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import{FormBuilder,FormControl,FormGroup,Validators} from '@angular/forms';
-import { UserService } from 'src/app/services/user.service';
-import{passwordChecker} from './../../custom-validators/password-checker'
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
-
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { ThrowStmt } from '@angular/compiler';
 
 
 @Component({
@@ -13,84 +12,44 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent implements OnInit {
+  cargar: boolean = false;
+  persona: any = {};
+  numero: any = 0;
+  contador: boolean=false;
 
+  constructor(private http: HttpClient) {}
 
-  registerForm:FormGroup;
-  submitted = false;
-  hide= true;
-  constructor(private formbuilder:FormBuilder,
-    private _us : UserService, 
-    private snackbar:MatSnackBar,
-    private _router :Router
-    ){
+  ngOnInit(): void {}
 
-  }
-  ngOnInit(){
-    this.registerForm = this.formbuilder.group(
-      {
-        username: ['',[Validators.required,Validators.minLength(3)]],
-        mobile: ['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],   
-        email:['',[Validators.required,Validators.email]],
-        password:['',[Validators.required,Validators.minLength(6)]],
-        confirmPassword :['',Validators.required],
-      },{
-        Validators:passwordChecker('password','confirmPassword')
-      }
-      );
-  }
-  get registrationPassword() {
-    return this.registerForm.get('password');
-  }
-  get registrationcPassword() {
-    return this.registerForm.get('confirmPassword');
-  }
- 
-  
-    onReset(){
-      this.submitted= false;
-      this.registerForm.reset();
-      
+  guardar() {
+    let formulario: any = document.getElementById('formulario');
+    if (formulario.reportValidity()) {
+      this.cargar = true;
+      this.servicioGuardar().subscribe(
+        (response:any) => this.resultadoServicio(response)
+      )
     }
-    onSubmit(){
-      if(this.registerForm.valid){
-        this.submitted = true;
-        let userDetails = new FormData()
-        Object.keys(this.registerForm.controls).forEach(key=>{
-          if(key!=="confirmPassword")
-          userDetails.append(key,this.registerForm.get(key).value)
-        })
-        this._us.register(userDetails).subscribe(
-          (res)=>{
-            let sb=  this.snackbar.open("Registration Successfull","close",{
-              duration : 3000,
-              panelClass: ['snackbar-style']
-              });
-              sb.onAction().subscribe(()=>{
-                this._router.navigate(['/login'])
-                sb.dismiss();
-        
-              })
-              sb.afterDismissed().subscribe(()=>{
-                this._router.navigate(['/login'])
-              })
-
-          },
-          (err)=>{
-            let sb=  this.snackbar.open(err.error,"close",{
-              duration : 3000,
-              panelClass: ['snackbar-style']
-              });
-            return
-
-          }
-        )
-      }
-      else return
-    
-    }
-  get h(){
-    return this.registerForm.controls;
+   
   }
+
+  resultadoServicio(res:any){
+    this.cargar=false;
+    console.log(res);
+    alert("Persona Guardada con el Id"+res.idpersona)
+  }
+  servicioGuardar() {
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    return this.http
+      .post<any>(
+        'http://localhost:8585/persona/guardar',
+        this.persona,httpOptions
+      )
+      .pipe(catchError((e) => 'error'));
+  }
+
+
 }
-
-

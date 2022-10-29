@@ -5,10 +5,10 @@
             <mat-icon class="icon-lg">help_outline </mat-icon>
           </div>
           <mat-card-title>{{vProperties.length}}</mat-card-title>
-          <mat-card-subtitle>Verifiable properties</mat-card-subtitle>
+          <mat-card-subtitle>Propiedades verificables</mat-card-subtitle>
         </mat-card-header>
         <mat-card-actions>
-          <button   class="view" mat-button  (click) ="showPendingProp()">View Details</button>
+          <button   class="view" mat-button  (click) ="showPendingProp()">Ver detalles</button>
         </mat-card-actions>
     </mat-card>
 </div>
@@ -16,23 +16,23 @@
     <div class="example-container"> 
       <mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="id">
-          <mat-header-cell *matHeaderCellDef mat-sort-header >Id </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header >Identificador </mat-header-cell>
           <mat-cell *matCellDef="let property"> {{property.id}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="country">
-            <mat-header-cell *matHeaderCellDef mat-sort-header >Country </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header >País </mat-header-cell>
             <mat-cell *matCellDef="let property"> {{property.country}} </mat-cell>
           </ng-container>
         <ng-container matColumnDef="state">
-            <mat-header-cell *matHeaderCellDef mat-sort-header >State </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header >Estado </mat-header-cell>
             <mat-cell *matCellDef="let property"> {{property.state}} </mat-cell>
           </ng-container>
         <ng-container matColumnDef="location">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Location </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Ubicación </mat-header-cell>
           <mat-cell *matCellDef="let property"> {{property.location}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="rent">
-          <mat-header-cell *matHeaderCellDef mat-sort-header > Rent </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header > Renta </mat-header-cell>
           <mat-cell *matCellDef="let property"> {{property.rent}} </mat-cell>
         </ng-container>  
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

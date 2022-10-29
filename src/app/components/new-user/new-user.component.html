@@ -1,88 +1,98 @@
-<div class="reg-form">
-    <mat-card>
-        <mat-card-title class="header" color="primary">Sign Up Here</mat-card-title>     
-        <mat-card-content>      
-            <form action="" (ngSubmit)="onSubmit()" name="registerForm" [formGroup]= "registerForm">
-                <div class="email-input form-group">
-                    <mat-icon class="field-icon"> person</mat-icon> 
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>username</mat-label>
-                        <input formControlName= "username" matInput required>
-                        <mat-error *ngIf= "h.username.errors?.required">
-                            User Name is required
-                        </mat-error>
-                        <mat-error *ngIf= "h.username.errors?.minlength">
-                            User Name is  minimum 3 characters
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="email-input form-group">
-                    <mat-icon class="field-icon"> phone</mat-icon> 
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>phone number</mat-label>
-                        <input formControlName= "mobile" matInput required>
-                        <mat-error *ngIf= "h.mobile.errors?.required">
-                            Mobile number is required
-                        </mat-error>
-                        <mat-error *ngIf= "h.mobile.errors?.minlength">
-                            Invalid Mobile number
-                        </mat-error>
-                    </mat-form-field>
-                </div>    
-                <div class="email-input form-group">
-                    <mat-icon class="field-icon"> email</mat-icon> 
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Email</mat-label>
-                        <input formControlName= "email" matInput required>
-                        <mat-error *ngIf= "h.email.errors?.required">
-                            Email is required
-                        </mat-error>
-                        <mat-error *ngIf= "h.email.errors?.email">
-                            Invalid email
-                        </mat-error>
-                    </mat-form-field>
-                </div>        
-                <div class="form-group">
-                    <mat-icon class="field-icon"> lock</mat-icon>            
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Password</mat-label>
-                        <input formControlName ="password" #pwd  matInput [type] = "hide?'password' :'text'" required >
-                        <button mat-icon-button matSuffix (click)="hide = !hide"                       >
-                            <mat-icon>{{hide?'visibility_off':'visibility'}}</mat-icon>
-                        </button>
-                        <mat-error *ngIf = "h.password.errors?.required">
-                            Required password
-                        </mat-error>
-                        <mat-error *ngIf = "h.password.errors?.minlength">
-                            Password is minimum 6 characters
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="form-group">
-                    <mat-icon class="field-icon"> lock</mat-icon>            
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Confirm Password</mat-label>
-                        <input formControlName ="confirmPassword" #cpwd matInput [type] = "hide?'password' :'text'" required >
-                        <button mat-icon-button matSuffix (click)="hide = !hide"                       >
-                            <mat-icon>{{hide?'visibility_off':'visibility'}}</mat-icon>
-                        </button>                   
-                        <mat-error *ngIf = "h.confirmPassword.errors?.required">
-                            Please Confirm Password
-                        </mat-error> 
-                        <mat-error *ngIf = "cpwd.value!= pwd.value">
-                            Passwords not matched
-                        </mat-error>                        
-                        <mat-error *ngIf="h.confirmPassword.errors.mustmatch" > 
-                            Password not matched                    
-                        </mat-error>
-                    </mat-form-field>                                    
-                </div> 
-               
-                <div  class="d-flex justify-content-around">                 
-                    <button mat-raised-button color="primary">Register</button>                  
-                    <button mat-raised-button color="primary" (click)="onReset()">Reset</button>                                             
-                </div>                                                   
-            </form>
-        </mat-card-content>
-    </mat-card> 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Crear persona</h1>
+    </div>
+    <div class="content">
+      <!--Inicio de Navbar-->
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <ul class="navbar-nav">
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link active" [routerLink]="['/home']">Inicio</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <br />
+    <br />
+    <!--Inicio de Barra de navegación-->
+    <div class="progress" *ngIf="cargar">
+      <div
+        class="progress-bar progress-bar-striped progress-bar-animated"
+        role="progressbar"
+        aria-valuenow="100"
+        style="width: 100%"
+      ></div>
+    </div>
+    <!--Fin Barra de navegación-->
+    <br />
+    <br />
+  </div>
+</div>
+<div class="container">
+  <!--Inicio de Creación de usuarios-->
+  <div class="row">
+    <div class="col-md-12">
+      <!--Inicio de formulario-->
+      <form (ngSubmit)="guardar()" id="formulario">
+        <div class="form-group">
+          <label>Usuario:</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="persona.usuario"
+            [ngModelOptions]="{ standalone: true }"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>Nombre:</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="persona.nombre"
+            [ngModelOptions]="{ standalone: true }"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>Apellido:</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="persona.apellido"
+            [ngModelOptions]="{ standalone: true }"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>Contraseña:</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="persona.contrasena"
+            [ngModelOptions]="{ standalone: true }"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>Fecha de nacimiento:</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="persona.fechanacimiento"
+            [ngModelOptions]="{ standalone: true }"
+            required
+          />
+        </div>
+        <hr />
+        <br />
+        <input type="submit" class="btn btn-success" value="Guardar" />
+      </form>
+      <!--Fin del formulario-->
+      <hr />
+    </div>
+  </div>
 </div>

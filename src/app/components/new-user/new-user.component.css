@@ -1,16 +1,4 @@
-mat-card{
-    margin-left:auto;
-    margin-right: auto;
-    text-align: center; 
-}
-.reg-form{ 
-    max-width: 500px;
-    max-height: 600px;
-    margin: auto;
-    margin-top: 20px;
-    box-sizing: border-box;  
- 
- }
+
 .header{
   display: flex;
   align-items: center;
@@ -34,12 +22,11 @@ a{
     display: flex;
     justify-content: space-around;
 }
-.pwd-match{
-    position: relative !important;
-    font-size: 12px;
-    top:-20px !important;
-    left: -80px;
-}
 
+label{
+    margin-top: 0.7em;
+    margin-bottom: 0.3em;
+    margin-right: 1em;
+}
 
 

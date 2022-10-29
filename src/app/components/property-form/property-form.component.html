@@ -1,19 +1,19 @@
 <button  mat-mini-fab color="warn"  class="close-button" [mat-dialog-close]="true">
-    <mat-icon class="close-icon text-white" >close</mat-icon>
+    <mat-icon class="close-icon text-white" >Cerrar</mat-icon>
 </button>
-<p class="text-white heading text-center btn btn-primary d-flex justify-content-center"> Post Your Property Details </p>
+<p class="text-white heading text-center btn btn-primary d-flex justify-content-center"> Publique los detalles de su propiedad </p>
 <mat-horizontal-stepper [linear]="isLinear" #stepper labelPosition="bottom">
     <mat-step [stepControl]="formBasicGroup" label="Basic" >
         <form [formGroup]="formBasicGroup">
             <div class="row  mx-auto">
                 <div class="col col-xs-8">
                     <mat-form-field class="ptype">
-                        <mat-label>Property Type</mat-label>
+                        <mat-label>Tipo de Propiedad</mat-label>
                         <mat-select formControlName="type">
                             <mat-option *ngFor="let p of propertyTypes" [value]="p">{{p}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="formBasicGroup.controls.type.errors?.required">
-                            Please Select Type of Property
+                            Seleccione el tipo de propiedad
                         </mat-error>
                     </mat-form-field>
                 </div>               
@@ -21,13 +21,13 @@
             <div class="row mx-auto">
                 <div class="col-xs-12 col-md-6">
                     <mat-form-field >
-                        <mat-label>Rent</mat-label>
+                        <mat-label>Renta</mat-label>
                         <input type="text" matInput formControlName="rent">
                         <mat-error *ngIf="formBasicGroup.controls.rent.errors?.required">
-                            Please Enter Rent Amount
+                            Ingrese el monto del aquiler 
                         </mat-error>
                         <mat-error *ngIf="formBasicGroup.controls.rent.errors?.pattern">
-                            Please Enter Number only
+                            Ingrese solo el número
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -38,7 +38,7 @@
                             <mat-option *ngFor="let b of BHKS" [value]="b">{{b}} BHK</mat-option>
                         </mat-select>
                         <mat-error *ngIf="formBasicGroup.controls.bhk.errors?.required">
-                            Please Select BHK Number
+                            Seleccionar BHK Número
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -46,25 +46,25 @@
             <div class="row mx-auto">
                 <div class="col-xs-12 col-md-6">
                     <mat-form-field >
-                        <mat-label>Baths</mat-label>
+                        <mat-label>Baños</mat-label>
                         <input type="text" matInput formControlName="baths">
                         <mat-error *ngIf="formBasicGroup.controls.baths.errors?.required">
-                            Please Enter Number of Baths
+                            Ingrese el número de baños
                         </mat-error>
                         <mat-error *ngIf="formBasicGroup.controls.baths.errors?.pattern">
-                            Please Enter Number Only
+                            Ingrese solo el número
                         </mat-error>
                       </mat-form-field>
                 </div>
                 <div class="col-xs-12 col-md-6">
                     <mat-form-field class="example-full-width">
-                        <mat-label>Area</mat-label>
+                        <mat-label>Área</mat-label>
                         <input type="text" matInput formControlName="area" >
                         <mat-error *ngIf="formBasicGroup.controls.area.errors?.required">
-                            Please Enter Pooperty Area
+                            Ingrese el área de propiedad
                         </mat-error>
                         <mat-error *ngIf="formBasicGroup.controls.area.errors?.pattern">
-                            Please Enter Number Only
+                            Ingrese solo el número
                         </mat-error>
                     </mat-form-field>   
                 </div>
@@ -73,13 +73,13 @@
                 <div class="col-xs-12 col-md-8 mt-sm-3">
                     <mat-radio-group  formControlName="status"  color="primary">
                         <div class="d-flex justify-content-center sort-radio" >
-                          Status:<mat-radio-button value="rented" class="sort">Rented</mat-radio-button>
-                          <mat-radio-button value="vacant" class="sort">vacant</mat-radio-button>
+                          Estatus:<mat-radio-button value="rented" class="sort">Alquilado</mat-radio-button>
+                          <mat-radio-button value="vacant" class="sort">vacante</mat-radio-button>
                         </div>       
                     </mat-radio-group>
                 </div>
                 <div class="col-xs-12 col-md-4 ">
-                    <button mat-raised-button color="primary" class="next1"  matStepperNext>Next</button>
+                    <button mat-raised-button color="primary" class="next1"  matStepperNext>Siguiente</button>
                 </div>
             </div>
         </form>
@@ -90,23 +90,23 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <mat-form-field>
-                        <mat-label>Country</mat-label>
+                        <mat-label>País</mat-label>
                         <mat-select formControlName="country" (selectionChange)="loadStates()">
                             <mat-option *ngFor="let c of countries" [value]="c">{{c}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="formAddressGroup.controls.country.errors?.required">
-                            Please Select Country of Property
+                            Seleccione el país de la propiedad
                         </mat-error>
                     </mat-form-field>
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <mat-form-field>
-                        <mat-label>State</mat-label>
+                        <mat-label>Estado</mat-label>
                         <mat-select formControlName="state">
                             <mat-option *ngFor="let s of states" [value]="s">{{s}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="formAddressGroup.controls.state.errors?.required">
-                            Please Select State of Property
+                            Seleccione el estado de la propiedad
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -116,10 +116,10 @@
                     <mat-form-field >
                         <input type="text" matInput required formControlName="location" placeholder="Location Name">
                         <mat-error *ngIf="formAddressGroup.controls.location.errors?.required">
-                                Enter Property Location
+                                Ingrese la ubicación de la propiedad
                         </mat-error>
                         <mat-error *ngIf="formAddressGroup.controls.location.errors?.pattern">
-                            Enter Valid Location Name
+                            Ingrese un nombre de ubicación válido
                     </mat-error>
                     </mat-form-field>
                 </div>
@@ -127,10 +127,10 @@
                     <mat-form-field >
                         <input type="text" matInput  required formControlName="address" placeholder="Full Address">
                         <mat-error *ngIf="formAddressGroup.controls.address.errors?.required">
-                                Enter Full Address
+                                Ingrese la dirección completa
                         </mat-error>
                         <mat-error *ngIf="formAddressGroup.controls.address.errors?.pattern">
-                            Enter Valid Address
+                            Ingrese una dirección válida
                     </mat-error>
                     </mat-form-field>
                 </div>
@@ -139,12 +139,12 @@
                 <div class="col-xs-12 col-sm-6">
                     <mat-form-field >
                         <input type="text" required matInput formControlName="zipcode" placeholder="Zip Code">
-                        <mat-error *ngIf="formAddressGroup.controls.zipcode.errors?.required">Enter Zip Code</mat-error>
-                        <mat-error *ngIf="formAddressGroup.controls.zipcode.errors?.pattern">Enter Valid Zip Code</mat-error>
+                        <mat-error *ngIf="formAddressGroup.controls.zipcode.errors?.required">Introduzca código postal</mat-error>
+                        <mat-error *ngIf="formAddressGroup.controls.zipcode.errors?.pattern">Ingrese un código postal válido</mat-error>
                     </mat-form-field>                
                 </div>
                 <div class="col-xs-12 col-sm-6">
-                    <button mat-raised-button color="primary" class="next2" matStepperNext>Next</button>
+                    <button mat-raised-button color="primary" class="next2" matStepperNext>Siguiente</button>
                 </div>
                 
             </div>            
@@ -154,51 +154,51 @@
 
   <mat-step [stepControl]="formFeaturesGroup" label="Features" >
         <form [formGroup]="formFeaturesGroup">
-            <div class="text-center text-primary  ">Check Belowe Features If Available</div>
+            <div class="text-center text-primary  ">Verifique las características a continuación si están disponibles</div>
             <div class="row mx-auto mt-4 ">
                 <div class="col col-xs-2 col-md-4">
                     <mat-checkbox color="primary" formControlName="gym">Gym</mat-checkbox>
                 </div>
                 <div class="col col-xs-2  col-md-4">
-                    <mat-checkbox color="primary" formControlName="parking">Parking</mat-checkbox>                    
+                    <mat-checkbox color="primary" formControlName="parking">Estacionamiento</mat-checkbox>                    
                 </div>
                 <div class="col col-xs-6  col-md-4">
-                    <mat-checkbox color="primary" formControlName="pool">Swimming Pool</mat-checkbox>               
+                    <mat-checkbox color="primary" formControlName="pool">Piscina</mat-checkbox>               
                 </div>              
             </div>
             <div class="d-flex justify-content-center mt-4">
-                <button mat-raised-button color="primary" matStepperNext>Next</button>  
+                <button mat-raised-button color="primary" matStepperNext>Siguiente</button>  
             </div>              
         </form> 
     </mat-step>
     <mat-step [stepControl]="formMediaGroup"  class="media" label="Media" > 
         <form [formGroup]="formMediaGroup">
             <div class="row " *ngIf="new">              
-                <label for="doc" class="btn btn-outline-primary" >upload Proerty Document Proof <mat-icon class="text-primary upload-icon">file_upload</mat-icon></label>
+                <label for="doc" class="btn btn-outline-primary" >Cargar comprobante de documento de propiedad <mat-icon class="text-primary upload-icon">file_upload</mat-icon></label>
                 <input formControlName="document"  id="doc" type="file" accept=".doc,.docx,application/pdf,.pdf"  multiple style="visibility:hidden;" (change)="onSelectDoc($event)" >
                 <mat-error *ngIf="documentErr">
-                    Please Upload Property Documnet Proof
+                    Cargue la prueba del documento de la propiedad
                 </mat-error>
                 <div class="row text-success text-center d-flex justify-content-center align-items-center" *ngIf="docAdded"> 
-                    Document Added
+                    Documento Agregado
                 </div> 
             </div> 
             <div class="row mt-3">              
-                <label for="images" class="btn btn-outline-primary">upload Images <mat-icon class="text-primary upload-icon">cloud_upload</mat-icon></label>
+                <label for="images" class="btn btn-outline-primary">Subir Imagenes <mat-icon class="text-primary upload-icon">cloud_upload</mat-icon></label>
                 <input formControlName="image"  id="images" type="file" accept="image/*"  multiple style="visibility:hidden;" (change)="onSelectFile($event)" >
                 <mat-error *ngIf="imagesErr">
-                    Please Upload Atleast One Image
+                    Cargue al menos una imagen
                 </mat-error>
             </div>
             <div class="d-flex flex-wrap py-4 container">
                 <div *ngFor="let url of urls;index as i "  class="col-lg-4 col-sm-6 col-12 p-2">                
                     <img [src]="url" alt="Image not found" height="150px" width="150px" class="mb-3">
-                    <button mat-mini-fab class="text-danget del-btn " (click)="deleteImg(i)"><mat-icon>delete</mat-icon></button>
+                    <button mat-mini-fab class="text-danget del-btn " (click)="deleteImg(i)"><mat-icon>Eliminar</mat-icon></button>
                 </div>
                 <div  *ngIf= "!new">
                     <div *ngFor="let url of newImageUrls;index as i "  class="col-lg-4 col-sm-6 col-12 p-2">                
                         <img [src]="url" alt="Image not found" height="150px" width="150px" class="mb-3">
-                        <button mat-mini-fab class="text-danget del-btn " (click)="deleteNewImg(i)"><mat-icon>delete</mat-icon></button>
+                        <button mat-mini-fab class="text-danget del-btn " (click)="deleteNewImg(i)"><mat-icon>Eliminar</mat-icon></button>
                     </div>
                 </div>                               
             </div>          
@@ -207,7 +207,7 @@
                    <button mat-raised-button color="primary"  (click)=" handlePropertyUpload()" >{{buttonName}}</button>                      
                 </div>
                 <div class="col text-center">
-                   <button mat-raised-button color="warn" (click)="stepper.reset();deleteAllImgs()">Reset</button>
+                   <button mat-raised-button color="warn" (click)="stepper.reset();deleteAllImgs()">Reniciar</button>
                 </div>
             </div>
         </form>

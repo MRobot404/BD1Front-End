@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Mostrar cursos</h1>
+      </div>
+      <div class="progress" *ngIf="cargar">
+        <div
+          class="progress-bar progress-bar-striped progress-bar-animated"
+          role="progressbar"
+          aria-valuenow="100"
+          style="width: 100%"
+        ></div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <hr />
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Id de la persona</th>
+                <th>Nombre</th>
+                <th>Fecha de usuario</th>
+                <th>Fecha de finalización</th>
+                <th>Dia</th>
+                <th>Hora de inicio</th>
+                <th>Hora de fin</th>
+                <th>Profesor</th>
+                <th>Id del profesor</th>
+                <th scope="col">Elliminar y Actualizar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let curso of personas">
+                <th scope="row">{{ curso.idcurso }}</th>
+                <th scope="row">{{ curso.nombre }}</th>
+                <th scope="row">
+                  {{ curso.fechaDeInicio | date: "dd/MM/yyyy" }}
+                </th>
+                <th scope="row">{{ curso.fechaFin | date: "dd/MM/yyyy" }}</th>
+                <th scope="row">{{ curso.dia }}</th>
+                <th scope="row">{{ curso.horaInicio }}</th>
+                <th scope="row">{{ curso.horaFin }}</th>
+                <th scope="row">{{ curso.profesor }}</th>
+                <th scope="row">{{ curso.profesorIdprofesor }}</th>
+                <th scope="row">
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="eliminar(curso)"
+                  >
+                    Eliminar
+                  </button>
+                  &nbsp;
+                  <button
+                    type="button"
+                    class="btn btn-warning"
+                    (click)="editar(curso)"
+                  >
+                    Actualizar
+                  </button>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

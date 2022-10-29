@@ -6,10 +6,10 @@
               <mat-icon class="icon-lg">help_outline </mat-icon>
             </div>
             <mat-card-title>{{pendingProperties.length}}</mat-card-title>
-            <mat-card-subtitle>Pending properties</mat-card-subtitle>
+            <mat-card-subtitle>Propiedades pendientes</mat-card-subtitle>
           </mat-card-header>
           <mat-card-actions>
-            <button   class="view" mat-button  (click) ="showPendingProp()">View Details</button>
+            <button   class="view" mat-button  (click) ="showPendingProp()">Ver detalles</button>
           </mat-card-actions>
       </mat-card>
     </div>
@@ -17,13 +17,13 @@
       <mat-card [ngClass]="'success'" >
           <mat-card-header>
             <div mat-card-avatar>
-              <mat-icon class="icon-lg">verified</mat-icon>
+              <mat-icon class="icon-lg">verificado</mat-icon>
             </div>
             <mat-card-title>{{verifiedProperties.length}}</mat-card-title>
-            <mat-card-subtitle>Verified properties</mat-card-subtitle>
+            <mat-card-subtitle>Propiedades verificadas</mat-card-subtitle>
           </mat-card-header>
           <mat-card-actions>
-            <button  class="view" mat-button   (click) ="showVerifiedProp()">View Details</button>
+            <button  class="view" mat-button   (click) ="showVerifiedProp()">Ver detalles</button>
           </mat-card-actions>
       </mat-card>
     </div>
@@ -34,10 +34,10 @@
               <mat-icon class="icon-lg">houseboat</mat-icon>
             </div>
             <mat-card-title>{{vacantProperties.length}}</mat-card-title>
-            <mat-card-subtitle>Vacant properties</mat-card-subtitle>
+            <mat-card-subtitle>Propiedades vacantes</mat-card-subtitle>
           </mat-card-header>
           <mat-card-actions>
-            <button   class="view"  (click) ="showVacantProp()" mat-button >View Details</button>
+            <button   class="view"  (click) ="showVacantProp()" mat-button >Ver detalles</button>
           </mat-card-actions>
       </mat-card>
     </div>
@@ -45,13 +45,13 @@
       <mat-card [ngClass]="'warn'" >
           <mat-card-header>
             <div mat-card-avatar>
-              <mat-icon class="icon-lg">no_meeting_room</mat-icon>
+              <mat-icon class="icon-lg">sin_sala_de_reuniones</mat-icon>
             </div>
             <mat-card-title>{{rentedProperties.length}}</mat-card-title>
-            <mat-card-subtitle>Rented Properties</mat-card-subtitle>
+            <mat-card-subtitle>Propiedades alquiladas</mat-card-subtitle>
           </mat-card-header>
           <mat-card-actions>
-            <button class="view" mat-button  (click) ="showRentedProp()" >View Details</button>
+            <button class="view" mat-button  (click) ="showRentedProp()" >Ver detalles</button>
           </mat-card-actions>
       </mat-card>
     </div>
@@ -70,15 +70,15 @@
         <mat-cell *matCellDef="let property"> {{property.id}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="location">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Location </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Ubicación </mat-header-cell>
         <mat-cell *matCellDef="let property"> {{property.location}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="rent">
-        <mat-header-cell *matHeaderCellDef mat-sort-header > Rent </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header > Renta </mat-header-cell>
         <mat-cell *matCellDef="let property"> {{property.rent}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="state">
-        <mat-header-cell *matHeaderCellDef mat-sort-header >State </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header >Estado </mat-header-cell>
         <mat-cell *matCellDef="let property"> {{property.state}} </mat-cell>
       </ng-container>  
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

@@ -11,11 +11,11 @@ import{NewUserComponent} from './components/new-user/new-user.component'
 import { PropertyContactRequestsComponent } from './components/property-contact-requests/property-contact-requests.component';
 import { PropertyDetailsComponent } from './components/property-details/property-details.component';
 import { TenantsListComponent } from './components/tenants-list/tenants-list.component';
-
+import {MostarpersonasComponent} from './mostarpersonas/mostarpersonas.component'
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '/home', pathMatch: 'full'
+    path: '', redirectTo: '/login', pathMatch: 'full'
   },
   {
     path: 'home',
@@ -61,6 +61,10 @@ const routes: Routes = [
   {
     path:'admin',
     component:AdminComponent
+  },
+  {
+    path:'mostrarpersonas',
+    component:MostarpersonasComponent
   },
 
   { 

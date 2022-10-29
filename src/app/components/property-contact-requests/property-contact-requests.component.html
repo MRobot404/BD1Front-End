@@ -1,4 +1,4 @@
-<div class="row  text-primary d-flex justify-content-center mt-3" *ngIf ="clicked">Visiters Requests to Your Properties</div>
+<div class="row  text-primary d-flex justify-content-center mt-3" *ngIf ="clicked">Solicitudes de visitantes a sus propiedades</div>
 <div class="row  mx-auto data-table mt-4" [hidden]= "!clicked">
     <div class="example-container"> 
       <mat-table [dataSource]="ds" matSort >
@@ -21,7 +21,7 @@
           <mat-cell *matCellDef="let request"> {{request.mobile}} </mat-cell>
         </ng-container> 
         <ng-container matColumnDef="visitdate">
-            <mat-header-cell *matHeaderCellDef mat-sort-header >Visit Date</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header >Fecha de visita</mat-header-cell>
             <mat-cell *matCellDef="let request"> {{request.visitdate | date}} </mat-cell>
         </ng-container> 
         <!-- <ng-container *ngFor="let col of columns" [matColumnDef]="col">

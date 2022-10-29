@@ -5,80 +5,80 @@
 </div>
 <div class="row camera" *ngIf="images.length>0" >
     <div class="col-sm-8 mx-auto">
-        <button class="btn btn-secondary"><mat-icon >photo_camera</mat-icon><span class="imgcount">{{images.length}} photos</span></button>   
+        <button class="btn btn-secondary"><mat-icon >Cámara</mat-icon><span class="imgcount">{{images.length}} fotos</span></button>   
     </div>
 </div>
 <div class="row">
     <mat-card class="col-sm-8 mx-auto mt-5">
         <div class="row mt-lg-4" >
             <div class="col-xs-12 col-sm-6  d-flex justify-content-between px-md-5 ">
-                <div><span class="icon-text">&#8377;<mat-icon ></mat-icon> Rent</span> </div>            
+                <div><span class="icon-text">&#8377;<mat-icon ></mat-icon> Renta</span> </div>            
                 <div>{{selectedProperty.rent|currency:'INR'}}</div>
             </div>
             <div class="col-xs-12 col-sm-6 d-flex justify-content-between px-md-5 ">
-                <div><mat-icon >square_foot</mat-icon><span class="icon-text"> Area</span></div>            
+                <div><mat-icon >Pie Cuadrado</mat-icon><span class="icon-text"> Área</span></div>            
                 <div>{{selectedProperty.area}}sqft</div>
             </div>
         </div>
         <div class="row mt-lg-4">
             <div class="col-xs-12 col-sm-6 d-flex justify-content-between px-md-5 ">
-                <div><mat-icon >bathtub</mat-icon><span class="icon-text">  Bathrooms</span></div>           
+                <div><mat-icon >Bañera</mat-icon><span class="icon-text">  Baños</span></div>           
                 <div>{{selectedProperty.baths}}</div>
             </div>
             <div class="col-xs-12 col-sm-6  d-flex justify-content-between px-md-5">
-                <div><mat-icon >fitness_center</mat-icon><span class="icon-text"> Gym</span></div>            
+                <div><mat-icon >Gimansio</mat-icon><span class="icon-text"> Gym</span></div>            
                 <div>{{selectedProperty.gym|titlecase}}</div>
             </div>  
         </div>
         <div class="row mt-lg-4">
             <div class="col-xs-12 col-sm-6 d-flex justify-content-between px-md-5 ">
-                <div><mat-icon >pool</mat-icon><span class="icon-text"> Swimming Pool </span></div>             
+                <div><mat-icon >Piscina</mat-icon><span class="icon-text"> Piscina </span></div>             
                 <div>{{selectedProperty.pool |titlecase}}</div>
             </div>
             <div class="col-xs-12 col-sm-6  d-flex justify-content-between px-md-5 ">
-                <div><mat-icon >emoji_transportation</mat-icon><span class="icon-text"> Parking</span></div>           
+                <div><mat-icon >emoji_transporte</mat-icon><span class="icon-text"> Estacionamiento</span></div>           
                 <div>{{selectedProperty.parking |titlecase}}</div>
             </div> 
         </div>
         <div class="row mt-lg-4">
             <div class="col-xs-12 col-sm-6   d-flex justify-content-between px-md-5">
-                <div> <mat-icon >flag</mat-icon><span class="icon-text"> Country</span></div>
+                <div> <mat-icon >Bandera</mat-icon><span class="icon-text"> País</span></div>
                 <div>{{selectedProperty.country |titlecase}}</div>
             </div>
             <div class="col-xs-12 col-sm-6 d-flex justify-content-between  px-md-5">
-                <div><mat-icon >location_city</mat-icon><span class="icon-text"> State </span></div>           
+                <div><mat-icon>Ubicacion_Ciudad</mat-icon><span class="icon-text"> Estado </span></div>           
                 <div>{{selectedProperty.state |titlecase}}</div>
             </div> 
         </div>
         <div class="row mt-lg-4">
             <div class="col-xs-12 col-sm-6 d-flex justify-content-between px-md-5 ">
-                <div><mat-icon >location_city</mat-icon><span class="icon-text"> Location</span></div>           
+                <div><mat-icon >Ubicacion_Ciudad</mat-icon><span class="icon-text"> Ubicación</span></div>           
                 <div>{{selectedProperty.location |titlecase}}</div>
             </div>
             <div class="col-xs-12 col-sm-6  d-flex justify-content-between px-md-5 ">
-                <div><mat-icon>location_on</mat-icon><span class="icon-text"> Address</span></div>
+                <div><mat-icon>location_on</mat-icon><span class="icon-text"> Dirección</span></div>
                 <div> {{selectedProperty.address |titlecase}}</div>
             </div> 
         </div>
         <div class="row  mt-4 d-flex justify-content-center" *ngIf = "!ownerProp && role != 'admin'">
             <div class="col-sm-12 col-md-5 ">
-                <button mat-raised-button color="primary" class="action" (click)="openDialog()">Contact Owner</button>        
+                <button mat-raised-button color="primary" class="action" (click)="openDialog()">Contactar al propietario</button>        
             </div> 
         </div>
         <div class="row  mt-4 d-flex justify-content-center" *ngIf = "ownerProp">
             <div class="col-sm-12 col-md-5 ">
-                <button mat-raised-button color="primary" class="action" (click)="openEditForm()">Edit Property</button>        
+                <button mat-raised-button color="primary" class="action" (click)="openEditForm()">Editar propiedad</button>        
             </div> 
         </div>
         <div class="row">
             <div class="col-5  mt-4 d-flex justify-content-center" *ngIf = "role == 'admin'">
                 <div class="col-sm-12 col-md-5 ">
-                    <a [href]="documentUrl" download> <button mat-raised-button color="primary" class="action"> view Document</button></a>        
+                    <a [href]="documentUrl" download> <button mat-raised-button color="primary" class="action"> Ver Documento</button></a>        
                 </div> 
             </div>
             <div class="col-5 mt-4 d-flex justify-content-center" *ngIf = "role == 'admin'">
                 <div class="col-sm-12 col-md-5 ">
-                    <button mat-raised-button color="primary" class="action" (click)="handleVerify()">Verify Property</button>        
+                    <button mat-raised-button color="primary" class="action" (click)="handleVerify()">Verificar propiedad</button>        
                 </div> 
             </div>
 

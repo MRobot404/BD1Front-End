@@ -1,79 +1,58 @@
+import {
+  HttpClient,
+  HttpHeaderResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import{FormGroup,FormControl,Validators} from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import { PropertyService } from 'src/app/services/property.service';
-
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  formData = {'email':"",'password':""};
-  loginForm :FormGroup;
-  hide= true;
-  errormsg="";
+  errorInicio: boolean = false;
+  loading: boolean = false;
+  persona: any = {};
+  resultado2: any;
+  resultado3: any;
 
-  constructor(private _us: UserService,
-              private _ps: PropertyService,
-              private router :Router,
-              public dialog: MatDialog,
-              public snackBar: MatSnackBar
-               
-               ) { }
-
-  ngOnInit(): void {
-    this._us.loginCheck.subscribe();
-    this.loginForm = new FormGroup(
-      {
-        email : new FormControl('',[Validators.required,Validators.email]),
-        password :new FormControl('',[Validators.required,Validators.minLength(8)])
-      }
-    );
-  }  
-  onLogin(){
-    if (this.loginForm.invalid) {
-      // this.snackBar.open('Please Fill fields','',{duration: 2000});       
-      return;
-    }  
-    this.formData.email =this.loginForm.value.email;
-    this.formData.password  = this.loginForm.value.password;
-    this._us.authenticate(this.formData).subscribe(
-      (res)=>{
-        if(res["role"]=="admin")  {
-          this.router.navigate(['/admin']);  
-          localStorage.setItem('role', "admin");
-          this.errormsg = null;
-          this._us.loginCheck.next({loggedIn:true})
-        }
-        else{
-        localStorage.setItem('id', res['id']);
-        localStorage.setItem('token', res['token']);
-        localStorage.setItem('username', res['username']);
-        localStorage.setItem('role', "user")
-        this._ps.fetchOwnerproperties(res['id'])
-        this._ps.fetchPropertyContactRequests(res['id']);
-        this._ps.fetchTenantsList(res['id']);
-        this.errormsg = null;
-        this._us.loginCheck.next({loggedIn:true})
-        this.router.navigate(['/dashboard',res['id']]);
-        }
-      },
-      (err)=>{
-        if(err.status == 0){
-          this.errormsg = "Server Unavailable";
-        }
-  
-        else this.errormsg= err.statusText;     
-       
-      }
-    )   
+  constructor(private http: HttpClient) {}
+  ngOnInit(): void {}
+  login() {
+    let formulario: any = document.getElementById('login');
+    let formularioValido: boolean = formulario.reportValidity();
+    if (formularioValido) {
+      this.loading = true;
+      this.loginService().subscribe((data) => this.iniciarSesion(data));
+    }
   }
-  closeDialog(): void {
-      this.dialog.closeAll();
+  iniciarSesion(resultado: any) {
+    this.loading = false;
+    console.log(resultado);
+
+    if (resultado.length > 0) {
+      localStorage.setItem('persona', JSON.stringify(resultado[0]));
+      location.href = '/menu';
+      
+    } else {
+      this.errorInicio = true;
+    }
+  }
+
+  loginService() {
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    return this.http
+      .post<any>(
+        'http://localhost:8585/persona/login',
+        this.persona,
+        httpOptions
+      )
+      .pipe(catchError((e) => 'Error'));
   }
 }
