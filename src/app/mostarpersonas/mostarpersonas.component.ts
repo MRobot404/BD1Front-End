@@ -13,22 +13,22 @@ export class MostarpersonasComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.buscarProfesores();
+    this.buscarPersonases();
   }
 
-  buscarProfesores() {
+  buscarPersonases() {
     this.cargar = true;
-    this.buscarProfesoresServicio().subscribe((response: any) =>
-      this.mostrarProfesores(response)
+    this.buscarPersonasesServicio().subscribe((response: any) =>
+      this.mostrarPersonases(response)
     );
   }
 
-  mostrarProfesores(response: any) {
+  mostrarPersonases(response: any) {
     this.cargar = false;
     this.personas = response;
   }
 
-  buscarProfesoresServicio(): Observable<any> {
+  buscarPersonasesServicio(): Observable<any> {
     return this.http
       .get<any>('http://localhost:8585/persona/buscar')
       .pipe(catchError((e) => 'error'));
@@ -37,21 +37,21 @@ export class MostarpersonasComponent implements OnInit {
 
   eliminar(persona: any) {
     this.cargar = true;
-    this.eliminarProfesoresServicio(persona.idpersona).subscribe(
-      (response: any) => this.buscarProfesores()
+    this.eliminarPersonasesServicio(persona.idpersona).subscribe(
+      (response: any) => this.buscarPersonases()
     );
   }
 
-  eliminarProfesoresServicio(id: any): Observable<any> {
+  eliminarPersonasesServicio(id: any): Observable<any> {
     return this.http
       .delete<any>('http://localhost:8585/persona/eliminar/' + id)
       .pipe(catchError((e) => 'error'));
   }
 
-  editar(persona: any) {
+  actualizar(persona:any){
     console.log(persona);
-    localStorage.setItem("personaid",JSON.stringify(persona));
- console.log(localStorage.getItem("personaid"));
- location.href="/actualizarpersonas";
-   }
+    localStorage.setItem("persona",JSON.stringify(persona));
+    console.log(localStorage.getItem("persona"));
+    location.href="/actualizarpersonas";
+    }
 }

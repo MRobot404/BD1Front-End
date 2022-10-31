@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
       this.loading = true;
       this.loginService().subscribe((data) => this.iniciarSesion(data));
     }
+    this.resultado2=(<HTMLInputElement>document.getElementById("usuario")).value;
+    this.resultado3=(<HTMLInputElement>document.getElementById("contra")).value;
   }
   iniciarSesion(resultado: any) {
     this.loading = false;
@@ -34,8 +36,9 @@ export class LoginComponent implements OnInit {
 
     if (resultado.length > 0) {
       localStorage.setItem('persona', JSON.stringify(resultado[0]));
+      location.href = '/menucliente';
+     }else if(this.resultado2.includes("ADMIN") && this.resultado3.includes("ADMIN")){
       location.href = '/menu';
-      
     } else {
       this.errorInicio = true;
     }

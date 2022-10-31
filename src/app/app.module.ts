@@ -33,6 +33,7 @@ import { AddTenantComponent } from './components/add-tenant/add-tenant.component
 import { AdminComponent } from './components/admin/admin.component';
 import { MostarpersonasComponent } from './mostarpersonas/mostarpersonas.component';
 import { ActualizarpersonasComponent } from './actualizarpersonas/actualizarpersonas.component';
+import { MenuclienteComponent } from './menucliente/menucliente.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { ActualizarpersonasComponent } from './actualizarpersonas/actualizarpers
     AdminComponent,
     MostarpersonasComponent,
     ActualizarpersonasComponent,
+    MenuclienteComponent,
 
  
   ],

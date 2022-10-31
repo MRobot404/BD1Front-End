@@ -40,11 +40,10 @@ export class HeaderComponent implements OnInit {
     this._ps.showOwnerProperties.subscribe()
   }
   logout(){
-    localStorage.removeItem('id')
-    localStorage.removeItem('token')
-    localStorage.removeItem('username')
-      this.router.navigate(['/login']);
-      this.signedIn=false;
+   
+      localStorage.removeItem("persona");
+      location.href="/";
+ 
   }
   
   onToggleSidenav(): void {

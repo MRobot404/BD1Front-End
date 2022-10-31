@@ -13,6 +13,7 @@ import { PropertyDetailsComponent } from './components/property-details/property
 import { TenantsListComponent } from './components/tenants-list/tenants-list.component';
 import {MostarpersonasComponent} from './mostarpersonas/mostarpersonas.component';
 import {ActualizarpersonasComponent} from './actualizarpersonas/actualizarpersonas.component';
+import {MenuclienteComponent} from './menucliente/menucliente.component';
 
 const routes: Routes = [
   {
@@ -32,34 +33,6 @@ const routes: Routes = [
     component:NewUserComponent
   },
   {
-    path:'newproperty',
-    component:AddNewPropertyComponent
-  },
-  {
-    path:'propertydetails/:id',
-    component:PropertyDetailsComponent
-  },
-  {
-    path:'dashboard/:id',
-    component:DashboardComponent,canActivate:[AuthGuard]
-  },
-  {
-    path:'addnewproperty',
-    component:AddNewPropertyComponent,canActivate:[AuthGuard]
-  },
-  {
-    path:'propertycontactrequests',
-    component:PropertyContactRequestsComponent,canActivate:[AuthGuard]
-  },
-  {
-    path:'tenantslist',
-    component:TenantsListComponent,canActivate:[AuthGuard]
-  },
-  {
-    path:'addtenant',
-    component:AddTenantComponent,canActivate:[AuthGuard]
-  },
-  {
     path:'admin',
     component:AdminComponent
   },
@@ -67,10 +40,14 @@ const routes: Routes = [
     path:'mostrarpersonas',
     component:MostarpersonasComponent
   },
-  {
-    path:'actualizarpersonas',
-    component:ActualizarpersonasComponent
-  },
+    {
+      path:'actualizarpersonas',
+      component:ActualizarpersonasComponent
+    },
+    {
+      path:'menucliente',
+      component:MenuclienteComponent
+    },
 
   { 
     path: '**', 

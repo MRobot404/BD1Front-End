@@ -1,10 +1,10 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Bienvenido{{persona.usuario}}</h1>
-      </div>
-      
-     <div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Bienvenido{{ persona.usuario }}</h1>
+    </div>
+
+    <div class="content">
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
           <ul class="navbar-nav">
@@ -12,15 +12,95 @@
               <a class="nav-link active" [routerLink]="['/home']">Inicio</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link active" [routerLink]="['/mostrarpersonas']">Mostrar personas</a>
+              <a class="nav-link active" [routerLink]="['/mostrarpersonas']"
+                >Persona</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" (click)="logout()" href="#">Cerrar Sesión</a>
+              <a class="nav-link active" (click)="logout()" href="#"
+                >Cerrar Sesión</a
+              >
             </li>
+            
             
           </ul>
         </div>
       </nav>
-     </div>
     </div>
+    <div class="progress" *ngIf="cargar">
+      <div
+        class="progress-bar progress-bar-striped progress-bar-animated"
+        role="progressbar"
+        aria-valuenow="100"
+        style="width: 100%"
+      ></div>
     </div>
+    <br />
+      <br />
+
+      <!--Inicio de Creación de usuarios-->
+      <div class="row">
+        <div class="col-md-12">
+          <!--Inicio de formulario-->
+          <form (ngSubmit)="guardar()" id="formulario">
+              <div class="form-group">
+                  <label>Usuario:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="persona.usuario"
+                    [ngModelOptions]="{ standalone: true }"
+                    readonly
+                    required
+                  />
+              </div>
+                  <div class="form-group">
+                      <label>Nombre:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="persona.nombre"
+                        [ngModelOptions]="{ standalone: true }"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>Apellido:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="persona.apellido"
+                        [ngModelOptions]="{ standalone: true }"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>Contraseña:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="persona.contrasena"
+                        [ngModelOptions]="{ standalone: true }"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>Fecha de nacimiento:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="persona.fechanacimiento"
+                        [ngModelOptions]="{ standalone: true }"
+                        required
+                      />
+                    </div>
+                    <br>
+          <input type="submit" class="btn btn-success" value="Guardar">
+          </form>
+      
+          <!--Fin del formulario-->
+          <hr>
+        </div>
+      </div>
+  </div>
+</div>
