@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   persona: any = {};
   resultado2: any;
   resultado3: any;
-
+  signedIn:boolean= true;
   constructor(private http: HttpClient) {}
   ngOnInit(): void {}
   login() {
@@ -32,13 +32,18 @@ export class LoginComponent implements OnInit {
   }
   iniciarSesion(resultado: any) {
     this.loading = false;
+    
     console.log(resultado);
 
     if (resultado.length > 0) {
       localStorage.setItem('persona', JSON.stringify(resultado[0]));
       location.href = '/menucliente';
+      this.signedIn=false;
+      localStorage.setItem('estado1',JSON.stringify(this.signedIn));
      }else if(this.resultado2.includes("ADMIN") && this.resultado3.includes("ADMIN")){
+      this.signedIn=false;
       location.href = '/menu';
+      localStorage.setItem('estado1',JSON.stringify(this.signedIn));
     } else {
       this.errorInicio = true;
     }

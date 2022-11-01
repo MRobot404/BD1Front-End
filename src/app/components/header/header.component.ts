@@ -11,33 +11,15 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HeaderComponent implements OnInit {
   signedIn:boolean= false;
-  id:string=null;
-  username:string= null;
-  role:string= null;
+  
   
   @Output() toggleSidenav = new EventEmitter<void>();
 
   constructor(private router:Router,private _ps: PropertyService,private _us: UserService) { }
 
   ngOnInit(): void {
-    this._ps.propertySearchFilters.subscribe();
-    // this.id = localStorage.getItem('id');
-    // if(this.id){
-    //   this.signedIn=true;
-    // }
-    this._us.loginCheck.subscribe(
-      (data)=>{
-        if(data.loggedIn==false) this.signedIn= false;
-        else {
-          this.signedIn = true;
-          this.role = localStorage.getItem('role');
-
-          this.id = localStorage.getItem('id');
-          this.username = localStorage.getItem('username')
-        }
-      }
-    )
-    this._ps.showOwnerProperties.subscribe()
+  this.signedIn=JSON.parse(localStorage.getItem('estado1'));
+  console.log(this.signedIn);
   }
   logout(){
    
