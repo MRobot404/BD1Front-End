@@ -17,9 +17,15 @@ export class LoginComponent implements OnInit {
   persona: any = {};
   resultado2: any;
   resultado3: any;
-  signedIn:boolean= true;
+  signedIn:boolean= false;
+  signedIn2:boolean= false;
   constructor(private http: HttpClient) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.signedIn=false;
+    this.signedIn2=false;
+    localStorage.setItem('estado1',JSON.stringify(this.signedIn));
+      localStorage.setItem('estado2',JSON.stringify(this.signedIn2));
+  }
   login() {
     let formulario: any = document.getElementById('login');
     let formularioValido: boolean = formulario.reportValidity();
@@ -39,11 +45,24 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('persona', JSON.stringify(resultado[0]));
       location.href = '/menucliente';
       this.signedIn=false;
+      this.signedIn2=true;
       localStorage.setItem('estado1',JSON.stringify(this.signedIn));
+      localStorage.setItem('estado2',JSON.stringify(this.signedIn2));
      }else if(this.resultado2.includes("ADMIN") && this.resultado3.includes("ADMIN")){
-      this.signedIn=false;
-      location.href = '/menu';
-      localStorage.setItem('estado1',JSON.stringify(this.signedIn));
+      if(this.resultado2.includes("ADMIN") ){
+        if(this.resultado3.includes("ADMIN")){
+          this.signedIn=true;
+          this.signedIn2=true;
+          location.href = '/menu';
+          localStorage.setItem('estado1',JSON.stringify(this.signedIn));
+          localStorage.setItem('estado2',JSON.stringify(this.signedIn2));
+        }else{
+          this.errorInicio = true;
+        }
+      }else{
+        this.errorInicio = true;
+      }
+      
     } else {
       this.errorInicio = true;
     }
@@ -57,7 +76,7 @@ export class LoginComponent implements OnInit {
     };
     return this.http
       .post<any>(
-        'http://localhost:8585/persona/login',
+        'http://localhost:8585/cliente/login',
         this.persona,
         httpOptions
       )

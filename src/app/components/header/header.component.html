@@ -1,8 +1,8 @@
   <mat-toolbar  class="w-100">
     
         <span class="text-center title spacer">Renta De Apartamento</span> 
-          <a mat-button routerLink="/signup"  class="menu" *ngIf="!signedIn">Ingresar</a>
-          <a mat-button routerLink="/login" (click)="logout()"  class="menu" *ngIf="!signedIn">Logout</a>
+          <a mat-button routerLink="/signup"  class="menu" *ngIf="signedIn">Ingresar</a>
+          <a mat-button routerLink="/login" (click)="logout()"  class="menu" *ngIf="signedIn2">Cerrar sesión</a>
               
   </mat-toolbar>
   <mat-sidenav-container >

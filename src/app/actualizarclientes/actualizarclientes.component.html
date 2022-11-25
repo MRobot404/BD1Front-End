@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12"></div>
+
+    <div class="content">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <ul class="navbar-nav">
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link active" [routerLink]="['/home']">Inicio</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link active" [routerLink]="['/mostrarclientes']">Clientes</a>
+              </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" (click)="logout()" href="#"
+                >Cerrar Sesión</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="progress" *ngIf="cargar">
+      <div
+        class="progress-bar progress-bar-striped progress-bar-animated"
+        role="progressbar"
+        aria-valuenow="100"
+        style="width: 100%"
+      ></div>
+    </div>
+    <br />
+    <br />
+
+    <!--Inicio de Creación de usuarios-->
+    <div class="row">
+      <div class="col-md-12">
+        <!--Inicio de formulario-->
+        <form (ngSubmit)="guardar()" id="formulario">
+          <div class="form-group">
+            <label>Id Cliente:</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="cliente.id_cliente"
+              [ngModelOptions]="{ standalone: true }"
+              readonly
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Id Persona:</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="cliente.id_persona"
+              [ngModelOptions]="{ standalone: true }"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Id Tipo usuario:</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="cliente.id_tipo_usuario"
+              [ngModelOptions]="{ standalone: true }"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Fecha alta:</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="cliente.fecha_alta"
+              [ngModelOptions]="{ standalone: true }"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Usuario Cliente:</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="cliente.usuario_cliente"
+              [ngModelOptions]="{ standalone: true }"
+              required
+            />
+          </div>
+          <br />
+          <input type="submit" class="btn btn-success" value="Guardar" />
+        </form>
+
+        <!--Fin del formulario-->
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>

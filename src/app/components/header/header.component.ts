@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HeaderComponent implements OnInit {
   signedIn:boolean= false;
+  signedIn2:boolean= false;
   
   
   @Output() toggleSidenav = new EventEmitter<void>();
@@ -20,6 +21,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   this.signedIn=JSON.parse(localStorage.getItem('estado1'));
   console.log(this.signedIn);
+  this.signedIn2=JSON.parse(localStorage.getItem('estado2'));
+  console.log(this.signedIn2);
   }
   logout(){
    

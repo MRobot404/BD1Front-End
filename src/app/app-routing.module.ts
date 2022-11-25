@@ -14,6 +14,8 @@ import { TenantsListComponent } from './components/tenants-list/tenants-list.com
 import {MostarpersonasComponent} from './mostarpersonas/mostarpersonas.component';
 import {ActualizarpersonasComponent} from './actualizarpersonas/actualizarpersonas.component';
 import {MenuclienteComponent} from './menucliente/menucliente.component';
+import {MostrarclientesComponent} from './mostrarclientes/mostrarclientes.component';
+import {ActualizarclientesComponent} from './actualizarclientes/actualizarclientes.component';
 
 const routes: Routes = [
   {
@@ -47,6 +49,14 @@ const routes: Routes = [
     {
       path:'menucliente',
       component:MenuclienteComponent
+    },
+    {
+      path:'mostrarclientes',
+      component:MostrarclientesComponent
+    },
+    {
+      path:'actualizarclientes',
+      component:ActualizarclientesComponent
     },
 
   { 

@@ -39,9 +39,15 @@
                     </div>
                     </div>
               </form>
+              <br>
+              <div class="row" *ngIf="errorInicio">
+                <label class="float-right" style="color: red;">
+                  Usuario o contraseña incorrecta.
+              </label>
+            </div>
         </mat-card-content>
     </mat-card> 
 
-    <!-- <button (click)="closeDialog()"> cancel</button> -->
+
 </div>
 

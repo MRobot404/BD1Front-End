@@ -34,6 +34,9 @@ import { AdminComponent } from './components/admin/admin.component';
 import { MostarpersonasComponent } from './mostarpersonas/mostarpersonas.component';
 import { ActualizarpersonasComponent } from './actualizarpersonas/actualizarpersonas.component';
 import { MenuclienteComponent } from './menucliente/menucliente.component';
+import { ActualizarclientesComponent } from './actualizarclientes/actualizarclientes.component';
+import { MostrarclientesComponent } from './mostrarclientes/mostrarclientes.component';
+import { AgregarclientesComponent } from './agregarclientes/agregarclientes.component';
 
 
 @NgModule({
@@ -64,6 +67,9 @@ import { MenuclienteComponent } from './menucliente/menucliente.component';
     MostarpersonasComponent,
     ActualizarpersonasComponent,
     MenuclienteComponent,
+    ActualizarclientesComponent,
+    MostrarclientesComponent,
+    AgregarclientesComponent,
 
  
   ],
