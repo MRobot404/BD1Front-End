@@ -15,5 +15,31 @@
         </div>
       </nav>
      </div>
+     <div class="row"  >
+    <div class="col-xs-12 col-sm-5 col-md-4" *ngFor="let inmueble of inmuebles">
+     <div class="card">
+      <div class="image">
+        <a (click)="redirigir(inmueble)">
+          <img
+        src="{{inmueble.url_imagen}}" alt="inmueble" class="card-img-top"
+        />
+      </a>
+      </div>
+      <div class="card-inner">
+        <div class="header">
+          <a (click)="redirigir(inmueble)">
+          <h2>{{inmueble.nombre_inmueble}}</h2>
+        </a>
+        <h4 class="text-muted">{{inmueble.direccion}}</h4>
+        <small class="text-muted">Capacidad: {{inmueble.capacidad}}</small>
+        <br>
+        <small class="text-muted">Descripción: {{inmueble.descripcion}}</small>
+        <br>
+
+        </div>
+      </div>
+     </div>
     </div>
+    </div>
+  </div>
     </div>

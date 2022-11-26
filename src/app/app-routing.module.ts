@@ -16,10 +16,11 @@ import {ActualizarpersonasComponent} from './actualizarpersonas/actualizarperson
 import {MenuclienteComponent} from './menucliente/menucliente.component';
 import {MostrarclientesComponent} from './mostrarclientes/mostrarclientes.component';
 import {ActualizarclientesComponent} from './actualizarclientes/actualizarclientes.component';
-
+import {MenuempleadoComponent} from './menuempleado/menuempleado.component';
+import {DetalleinmuebleComponent} from './detalleinmueble/detalleinmueble.component';
 const routes: Routes = [
   {
-    path: '', redirectTo: '/login', pathMatch: 'full'
+    path: '', redirectTo: '/menucliente', pathMatch: 'full'
   },
   {
     path: 'home',
@@ -58,6 +59,15 @@ const routes: Routes = [
       path:'actualizarclientes',
       component:ActualizarclientesComponent
     },
+    {
+      path:'menuempleado',
+      component:MenuclienteComponent
+    },
+    {
+      path:'inmuebledetalle:/id',
+      component:DetalleinmuebleComponent
+    },
+
 
   { 
     path: '**', 

@@ -37,6 +37,8 @@ import { MenuclienteComponent } from './menucliente/menucliente.component';
 import { ActualizarclientesComponent } from './actualizarclientes/actualizarclientes.component';
 import { MostrarclientesComponent } from './mostrarclientes/mostrarclientes.component';
 import { AgregarclientesComponent } from './agregarclientes/agregarclientes.component';
+import { MenuempleadoComponent } from './menuempleado/menuempleado.component';
+import { DetalleinmuebleComponent } from './detalleinmueble/detalleinmueble.component';
 
 
 @NgModule({
@@ -70,6 +72,8 @@ import { AgregarclientesComponent } from './agregarclientes/agregarclientes.comp
     ActualizarclientesComponent,
     MostrarclientesComponent,
     AgregarclientesComponent,
+    MenuempleadoComponent,
+    DetalleinmuebleComponent,
 
  
   ],

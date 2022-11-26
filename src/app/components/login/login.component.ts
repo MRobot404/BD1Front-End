@@ -56,6 +56,12 @@ export class LoginComponent implements OnInit {
           location.href = '/menu';
           localStorage.setItem('estado1',JSON.stringify(this.signedIn));
           localStorage.setItem('estado2',JSON.stringify(this.signedIn2));
+        }else if(resultado.length > 0){
+          localStorage.setItem('empleado', JSON.stringify(resultado[0]));
+          location.href = '/menucliente';
+          this.signedIn=false;
+          this.signedIn2=true;
+          localStorage.setItem('estado1',JSON.stringify(this.signedIn));
         }else{
           this.errorInicio = true;
         }
